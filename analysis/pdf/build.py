@@ -170,6 +170,7 @@ def cover(m, nums, total):
     return (f'<section class="page cover"><div class="kick">{esc(m["brand"])} · {esc(m["doc_type"])}{sample}</div>'
             f'<h1>{esc(m["title"])}</h1><p class="sub">{esc(m["subtitle"])}</p><div class="bar"></div>'
             f'<div class="spacer"></div><div class="nums">{n}</div>'
+            + (f'<p class="csrc">{esc(m["cover_source"])}</p>' if m.get("cover_source") else "") +
             f'<div class="line"><span>Подготвено за {esc(m["prepared_for"])} · {esc(m["prepared_by"])} · {esc(m["date"])}</span>'
             f'<span>1 / {total}</span></div></section>')
 
@@ -258,6 +259,17 @@ def main():
                          ("\u2014", "дълго тире (заменете с точка, двоеточие или запетая)")]:
             for hit in sorted(set(re.findall(pat, text))):
                 FAIL.append(f'{why}: "{hit}"')
+        # Застъпване с футъра: при фиксирани страници препълването не добавя лист, а се врязва във футъра.
+        # Футърът започва на ~10 mm + 2 mm отстъп + линия от долния ръб; текст на тялото не бива да стига под него.
+        if shutil.which("pdftotext"):
+            foot_top = 841.89 - 13 / 25.4 * 72
+            for pg in range(2, pages + 1):
+                bbox = run(["pdftotext", "-bbox", "-f", str(pg), "-l", str(pg), str(out_pdf), "-"])
+                lows = sorted(float(y) for y in re.findall(r'yMax="([\d.]+)"', bbox))
+                body = [y for y in lows if y < foot_top - 0.5]          # всичко над футъра
+                foot = [y for y in lows if y >= foot_top - 0.5]         # редът на футъра
+                if body and foot and max(body) > foot_top - 6:          # по-малко от ~2 mm до футъра
+                    FAIL.append(f"страница {pg}: текстът стига до футъра ({max(body):.0f} pt при футър {foot_top:.0f} pt)")
         qc = HERE / "qc"
         qc.mkdir(exist_ok=True)
         for old in qc.glob(f"{name}-*.png"):

@@ -122,3 +122,4 @@ table.t{width:100%;border-collapse:collapse;table-layout:fixed;font-size:8.6pt;l
 .fig .axis{stroke:#16181E;stroke-width:.8}
 .t td.num, .t th.num{padding-right:4mm}
 .t td.num:last-child, .t th.num:last-child{padding-right:0}
+.cover .csrc{font-size:7pt;color:#9A9EAA;margin-top:4mm;line-height:1.4}
