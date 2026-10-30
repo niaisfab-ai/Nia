@@ -262,14 +262,17 @@ def main():
         # Застъпване с футъра: при фиксирани страници препълването не добавя лист, а се врязва във футъра.
         # Футърът започва на ~10 mm + 2 mm отстъп + линия от долния ръб; текст на тялото не бива да стига под него.
         if shutil.which("pdftotext"):
-            foot_top = 841.89 - 13 / 25.4 * 72
             for pg in range(2, pages + 1):
                 bbox = run(["pdftotext", "-bbox", "-f", str(pg), "-l", str(pg), str(out_pdf), "-"])
-                lows = sorted(float(y) for y in re.findall(r'yMax="([\d.]+)"', bbox))
-                foot_line = max((y for y in lows if foot_top - 0.5 <= y <= foot_top + 10), default=None)  # редът на футъра
-                touching = [y for y in lows if foot_top - 6 < y < foot_top - 0.5]   # по-малко от ~2 mm над футъра
-                below = [y for y in lows if foot_line and y > foot_line + 1]        # текст ПОД футъра
-                if touching or below:
+                words = [(float(y), w) for y, w in re.findall(r'yMax="([\d.]+)">([^<]*)</word>', bbox)]
+                if not words:
+                    continue
+                foot_line = max(y for y, _ in words)                 # най-долният ред е футърът
+                # Футърът има линия ~2 mm над текста си. Всичко друго трябва да свършва над нея (16 pt над реда).
+                close = [w for y, w in words if foot_line - 16 < y < foot_line - 1.5]
+                n_foot = len(f'{c["meta"]["brand"]} · {c["meta"]["doc_type"]}'.split()) + 3
+                on_line = [w for y, w in words if abs(y - foot_line) <= 1.5]
+                if close or len(on_line) > n_foot:
                     FAIL.append(f"страница {pg}: текстът стига до футъра или под него")
         qc = HERE / "qc"
         qc.mkdir(exist_ok=True)
