@@ -1,0 +1,23 @@
+param,pess,base,opt,unit,type,source
+pop_eu,450400000,450400000,450400000,души,факт,research/01_razmer_pazar.md (Евростат чрез БТА 01.01.2025)
+share_sport_weekly,0.38,0.38,0.38,дял,факт,research/01_razmer_pazar.md (Евробарометър SP525 2022; 15+)
+share_online_clothes,0.46,0.46,0.46,дял,факт,research/09_oficialni_fakti.md (Евростат 2024; от интернет потребителите)
+share_pay_premium,0.01,0.04,0.07,дял,факт/оценка,research/02_klienti_tarsene.md (BCG 1–7% реално плащат премия; базов = среда — ОЦЕНКА)
+price_gross_market,75,99.90,109.52,€ с ДДС,факт,research/03_konkurenti_ceni.md (клинове: мин. Organic Basics / медиана на 7 / макс. Houdini)
+price_gross,75,89,99.90,€ с ДДС,оценка,ОЦЕНКА: наша цена в диапазона на конкурентите €75–109.52; базов под медианата €99.90
+vat,0.20,0.20,0.20,дял,оценка,ОЦЕНКА: ДДС 20% по ЗДДС чл. 66 ал. 1 — не е проверено онлайн (lex.bg блокиран)
+gross_margin,0.410,0.516,0.576,дял от нетна цена,факт,research/06_ikonomika.md (Allbirds 41.0% / медиана на 7 публични компании 51.6% / Amer 57.6%)
+pay_pct,0.021,0.021,0.021,дял,факт,research/05_kanali_cac.md (Shopify Payments EU 2.1%)
+pay_fix,0.30,0.30,0.30,€ на поръчка,факт,research/05_kanali_cac.md (Shopify Payments EU €0.30)
+ship_cost,16.49,8.25,0,€ на поръчка,факт/оценка,research/05_kanali_cac.md (DHL ≤5 кг ЕС €16.49 = песим.; базов = половината — ОЦЕНКА; оптим. = плаща клиентът — ОЦЕНКА)
+return_rate,0.42,0.224,0.20,дял,факт,research/05_kanali_cac.md и 06_ikonomika.md (Teleborsa 42% / Eightx 22.4% / EEA 20%)
+cpm,9.05,9.05,9.05,€ за 1000 показа,факт,research/05_kanali_cac.md (Meta CPM Германия e-commerce)
+ctr,0.0129,0.0129,0.0225,дял,факт,research/05_kanali_cac.md (LocaliQ apparel 1.29% / Triple Whale apparel 2.25%)
+cvr,0.016,0.019,0.029,дял,факт,research/05_kanali_cac.md (Triple Whale Meta 1.6% / Shopify fashion 1.9% / attribuly 2.9%)
+orders_12m,1.20,1.26,1.32,поръчки на клиент,факт/оценка,research/05_kanali_cac.md (Eightx повторни 20–32% / 26%; 1 + дял повторни — ОЦЕНКА)
+orders_24m,1.4,1.8,2.2,поръчки на клиент,факт/оценка,research/05_kanali_cac.md (Eightx ~1.8 поръчки на клиент = базов; песим./оптим. ±0.4 — ОЦЕНКА)
+fixed_known,187.17,187.17,187.17,€ на месец,факт,research/05 и 06 (Shopify €33 + OEKO-TEX (€950 лиценз + €900 одит)/12)
+fixed_other,2000,1000,500,€ на месец,оценка,ОЦЕНКА: счетоводство/снимки/софтуер; основателят без заплата
+marketing,2000,2000,2000,€ на месец,оценка,ОЦЕНКА: еднакъв бюджет във всички сценарии за сравнимост
+styles,3,3,3,модела,оценка,ОЦЕНКА: клин + тениска + сутиен
+moq,1000,300,300,бр. на модел,факт,research/06_ikonomika.md (Турция FOB MOQ 300 / 1000)
