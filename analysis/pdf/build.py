@@ -266,10 +266,11 @@ def main():
             for pg in range(2, pages + 1):
                 bbox = run(["pdftotext", "-bbox", "-f", str(pg), "-l", str(pg), str(out_pdf), "-"])
                 lows = sorted(float(y) for y in re.findall(r'yMax="([\d.]+)"', bbox))
-                body = [y for y in lows if y < foot_top - 0.5]          # всичко над футъра
-                foot = [y for y in lows if y >= foot_top - 0.5]         # редът на футъра
-                if body and foot and max(body) > foot_top - 6:          # по-малко от ~2 mm до футъра
-                    FAIL.append(f"страница {pg}: текстът стига до футъра ({max(body):.0f} pt при футър {foot_top:.0f} pt)")
+                foot_line = max((y for y in lows if foot_top - 0.5 <= y <= foot_top + 10), default=None)  # редът на футъра
+                touching = [y for y in lows if foot_top - 6 < y < foot_top - 0.5]   # по-малко от ~2 mm над футъра
+                below = [y for y in lows if foot_line and y > foot_line + 1]        # текст ПОД футъра
+                if touching or below:
+                    FAIL.append(f"страница {pg}: текстът стига до футъра или под него")
         qc = HERE / "qc"
         qc.mkdir(exist_ok=True)
         for old in qc.glob(f"{name}-*.png"):
