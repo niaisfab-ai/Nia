@@ -1,0 +1,5 @@
+/* Inter, статични TTF (превърнати от OTF с otf2ttf.py, за да няма Type 3). Лиценз: LICENSE-Inter.txt (OFL). */
+@font-face { font-family: 'Inter'; font-weight: 400; src: url(Inter-Regular.ttf) format('truetype'); }
+@font-face { font-family: 'Inter'; font-weight: 600; src: url(Inter-SemiBold.ttf) format('truetype'); }
+@font-face { font-family: 'Inter'; font-weight: 700; src: url(Inter-Bold.ttf) format('truetype'); }
+@font-face { font-family: 'Inter'; font-weight: 800; src: url(Inter-ExtraBold.ttf) format('truetype'); }
