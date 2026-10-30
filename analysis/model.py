@@ -219,13 +219,13 @@ def fig_competitors():
         if name not in seen:
             ax.annotate(name, (x + jitter, y), xytext=(8, 0), textcoords="offset points", fontsize=8, va="center")
             seen.add(name)
-    ax.text(0.55, 55, "празно: клин от естествени\nматерии под €79.99", fontsize=8, color=INK, va="center",
+    ax.text(0.55, 55, "празно: клин с естествени\nвлакна под €79.99", fontsize=8, color=INK, va="center",
             bbox=dict(boxstyle="round", fc="#fbe1d6", ec="none"))
     ax.set_xticks([0, 1, 2], ["рециклирана синтетика", "мерино + синтетика", "предимно естествени"])
     ax.set_xlim(-0.5, 2.9)
     ax.set_ylim(20, 120)
     ax.set_ylabel("редовна цена, € (с ДДС)")
-    ax.set_title("Клинът от естествени материи започва от €79.99; под €70 има само сутиен и бельо", fontsize=11, loc="left", fontweight="bold")
+    ax.set_title("Клин с мерино: от €79.99 (смес); предимно естествен: от €99.90", fontsize=11, loc="left", fontweight="bold")
     fig.tight_layout()
     fig.savefig(os.path.join(FIG, "02_konkurenti.png"))
     plt.close(fig)
@@ -267,7 +267,7 @@ def fig_cash(paths):
     ax.set_xlabel("месец")
     ax.set_ylabel("натрупан паричен поток, хил. €")
     ax.legend(frameon=False, fontsize=8, loc="lower left")
-    ax.set_title("Само оптимистичният сценарий връща парите за 36 месеца", fontsize=11, loc="left", fontweight="bold")
+    ax.set_title("Само оптимистичният сценарий връща парите: на 9-ия месец", fontsize=11, loc="left", fontweight="bold")
     fig.tight_layout()
     fig.savefig(os.path.join(FIG, "04_scenarii.png"))
     plt.close(fig)
