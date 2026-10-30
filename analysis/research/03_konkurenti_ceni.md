@@ -13,7 +13,7 @@
 | super.natural: Super Lux Tight | €100 | https://supernatural-merino.com/eu/Outlet/ | н.д. | официален (сайт) |
 | super.natural: тениска | €79.99 | https://www.breuninger.com/be/merken/supernatural/ | н.д. | медия (търговец) |
 | Ortovox: сегмент Outdoor Schwan-Stabilo | €245 млн (2022/23); −14.1% (2023/24) | https://www.textilwirtschaft.de/business/sports/schwan-stabilo-mit-stabilem-outdoor-geschaeft-ortovox-gleicht-deuter-verluste-aus-222631 ; https://fashionunited.de/nachrichten/business/nach-rekordjahren-outdoorsparte-von-schwan-stabilo-meldet-verluste/2024112259128 | 2023/24 | медия |
-| Ortovox: тениска 120 Cool Tec | €74.90 редовна | https://en.hardloop.de/product/60700-ortovox-120-cool-tec-mountain-cut-ts-merino-shirt-womens | н.д. | медия (търговец) |
+| Ortovox: тениска 120 Cool Tec (състав на модела Fast Upward LS: 52% вълна, 33% Tencel, 15% полиамид) | €74.90 редовна | https://en.hardloop.de/product/60700-ortovox-120-cool-tec-mountain-cut-ts-merino-shirt-womens | н.д. | медия (търговец) |
 | Ortovox: дълъг ръкав 120 Cool Tec | €89.90 | https://en.hardloop.de/product/28924-ortovox-120-cool-tec-fast-upward-ls-merino-wool-base-layer-womens | н.д. | медия (търговец) |
 | Engel Sports: GOTS, мерино+коприна | – | https://utopia.de/produkt/engel-sports_115105 | н.д. | медия |
 | Engel: дамско бельо вълна/коприна GOTS | €36.89–47.50 | https://www.preissuchmaschine.de/preisvergleich/engel-damen-kurzarm-unterhemd-merino-500001116153.html | н.д. | медия |
@@ -31,6 +31,20 @@
 | Tripulse: „plastic-free“ TENCEL, OEKO-TEX 100 | – | https://tripulse.co/products/next-gen-sports-bra-with-tencel™ | н.д. | самодеклариране |
 | България: Stinky Socks (само чорапи мерино/памук) | – | https://www.capital.bg/biznes/kompanii/2024/03/15/4598796_chorapi_za_djentulmeni/ | 2024 | медия |
 | Българска марка спортно облекло от естествени материи | не е намерена | – | – | – |
+
+## Държави (от researcher-а)
+Icebreaker — NZ; Smartwool — САЩ; Ortovox — DE; Engel — DE; Hessnatur — DE; Organic Basics — DK; Girlfriend Collective — САЩ; Kari Traa — NO; Houdini — SE; Patagonia — САЩ; Vuori — САЩ; Allbirds — САЩ; Isobaa — UK; Tripulse — Швеция (research/08, Caplight). super.natural — не е потвърдена.
+
+## Позициониране (по едно изречение, от researcher-а)
+- Icebreaker / Smartwool: мерино за базови слоеве и спорт, премиум сегмент, част от VF.
+- super.natural: мерино смесено с технически влакна за йога, бягане и ски.
+- Ortovox: мерино за алпинизъм и ски, част от Schwan-Stabilo.
+- Engel Sports: бельо и спортни дрехи от вълна и коприна с GOTS.
+- Hessnatur: органична мода и основни дрехи, германски пионер в сегмента.
+- Organic Basics: датски основни дрехи и спортно облекло от рециклирани и органични материи.
+- Girlfriend Collective: спортно облекло за жени от рециклиран PET.
+- Kari Traa: женско ски и спортно облекло.
+- Houdini: шведско кръгово outdoor облекло.
 
 - Сигурно: Allbirds 2024 (SEC); VF притежава Icebreaker/Smartwool; Patagonia без PFAS от 2025; Organic Basics клин €75–86.
 - Несигурно: повечето цени от търговци; приходи Patagonia/Vuori/Hessnatur — медии.

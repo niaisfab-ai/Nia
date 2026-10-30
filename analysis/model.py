@@ -138,7 +138,7 @@ def sensitivity(p):
 # ---------- 4. Оценка на хипотетичен стартъп ----------
 # ВСИЧКИ входни данни за стартъпа са ХИПОТЕТИЧНИ (потребителят няма данни).
 HYPO = dict(revenue=150_000, ebitda=-30_000, customers=1_800, ask=50_000, stake=0.08)
-DEALS = {"Allbirds 2026": 0.26, "Icebreaker 2018": 1.13, "Gymshark 2020": 4.0, "Vuori 2024": 5.5, "Allbirds IPO 2021": 9.9}
+DEALS = {"Allbirds 2026": 0.26, "Icebreaker 2018": 1.13, "Vuori 2024": 5.5, "Allbirds IPO 2021": 9.9}  # Gymshark изключен: множителят смесва USD и GBP
 EV_EBITDA = 10.30  # Damodaran US Apparel, 01.2026
 EBITDA_MARGIN_Y5 = 0.1147  # Damodaran US Apparel медиана
 GROWTH = [0.60, 0.40, 0.30, 0.20, 0.15]  # ОЦЕНКА
@@ -208,23 +208,24 @@ def fig_competitors():
         ("Icebreaker клин", 2, 99.90), ("Icebreaker клин", 2, 105.95),
         ("Ortovox тениска", 2, 74.90), ("Ortovox дълъг ръкав", 2, 89.90),
         ("Engel бельо", 2, 36.89), ("Engel бельо", 2, 47.50),
+        ("Smartwool сутиен", 2, 64.95), ("Smartwool сутиен", 2, 69.95),
     ]
     fig, ax = plt.subplots(figsize=(8, 3.8))
     seen = set()
     for name, x, y in pts:
         jitter = {"Organic Basics клин": -0.08, "super.natural клин": 0, "Icebreaker клин": 0.12,
-                  "Ortovox тениска": -0.12, "Ortovox дълъг ръкав": -0.12, "Engel бельо": 0.0}[name]
+                  "Ortovox тениска": -0.12, "Ortovox дълъг ръкав": -0.12, "Engel бельо": 0.0, "Smartwool сутиен": 0.24}[name]
         ax.scatter(x + jitter, y, s=60, color=GRAY if "бельо" in name else BLUE, edgecolor="white", linewidth=1.5, zorder=3)
         if name not in seen:
             ax.annotate(name, (x + jitter, y), xytext=(8, 0), textcoords="offset points", fontsize=8, va="center")
             seen.add(name)
-    ax.add_patch(plt.Rectangle((1.55, 52), 1.0, 18, color=ORANGE, alpha=0.15, zorder=1))
-    ax.text(1.58, 61, "празно: естествени, сертифицирани\nклин/топ за €50–70", fontsize=8, color=INK, va="center")
+    ax.text(0.55, 55, "празно: клин от естествени\nматерии под €79.99", fontsize=8, color=INK, va="center",
+            bbox=dict(boxstyle="round", fc="#fbe1d6", ec="none"))
     ax.set_xticks([0, 1, 2], ["рециклирана синтетика", "мерино + синтетика", "предимно естествени"])
-    ax.set_xlim(-0.5, 2.6)
+    ax.set_xlim(-0.5, 2.9)
     ax.set_ylim(20, 120)
     ax.set_ylabel("редовна цена, € (с ДДС)")
-    ax.set_title("Естествените спортни дрехи струват €75–106; под €70 има само бельо", fontsize=11, loc="left", fontweight="bold")
+    ax.set_title("Клинът от естествени материи започва от €79.99; под €70 има само сутиен и бельо", fontsize=11, loc="left", fontweight="bold")
     fig.tight_layout()
     fig.savefig(os.path.join(FIG, "02_konkurenti.png"))
     plt.close(fig)
@@ -337,17 +338,45 @@ def main():
     base_val, sens = sensitivity(p)
     ranges, total, ask, comps = valuation(U["base"], U["opt"])
 
-    # Двуседмичен тест: бюджет и праг
-    test_budget = 600  # ОЦЕНКА
+    # Прагове „какво трябва да е вярно“ (базов сценарий, всяко поотделно)
     q = p["base"]
+    ub = U["base"]
+    cac_zero = ub["ltv24"]  # печалба 0 на клиент
+    cac_ss = q["marketing"] * ub["ltv24"] / (q["marketing"] + ub["fixed"])  # покрива и постоянните разходи
+
+    def payback_with_cac(cac):
+        u2 = dict(ub, cac=cac)
+        return simulate(q, u2)[0][-1] >= 0
+
+    lo, hi = 0.01, cac_ss
+    for _ in range(60):  # двоично търсене: най-висок CAC, при който натрупаният поток е ≥ 0 след 36 мес.
+        mid = (lo + hi) / 2
+        lo, hi = (mid, hi) if payback_with_cac(mid) else (lo, mid)
+    cac_36 = lo
+    orders_needed = ub["cac"] / ub["contrib"]
+    one = lambda k, v: unit(dict(q, **{k: v}))
+    thr = [
+        ["CAC за печалба 0 на клиент (LTV24 = CAC) €", round(cac_zero, 2)],
+        ["CAC, при който стабилният месечен резултат покрива и постоянните разходи €", round(cac_ss, 2)],
+        ["CAC, при който парите се връщат до 36-ия месец €", round(cac_36, 2)],
+        ["поръчки за 24 мес., при които LTV24 = CAC (базов CAC)", round(orders_needed, 2)],
+        ["принос на поръчка при 42% връщания, останалото базово €", round(one("return_rate", 0.42)["contrib"], 2)],
+        ["принос на поръчка при марж 41.0%, останалото базово €", round(one("gross_margin", 0.41)["contrib"], 2)],
+    ]
+    write_csv("thresholds.csv", ["праг", "стойност"], thr)
+
+    # Двуседмичен тест: бюджет и праг = CAC за връщане на парите до 36 мес.
+    test_budget = 600  # ОЦЕНКА
     clicks = test_budget / q["cpm"] * 1000 * q["ctr"]
-    target_cac = U["base"]["max_cac"]
-    need_orders = test_budget / target_cac
+    need_orders = -(-test_budget // cac_36)  # закръгляне нагоре
     write_csv("test_2w.csv", ["показател", "стойност"], [
         ["бюджет € (ОЦЕНКА)", test_budget], ["очаквани кликове при CPM и CTR базов", round(clicks)],
-        ["максимален CAC за рентабилност (базов) €", round(target_cac, 2)],
-        ["нужни предварителни поръчки за CAC ≤ максимален", round(need_orders + 0.4999)],
-        ["нужна конверсия клик → поръчка", round(need_orders / clicks, 4)]])
+        ["праг 1: CAC за покриване на постоянните разходи €", round(cac_ss, 2)],
+        ["праг 1: нужни поръчки (закръглено нагоре)", int(-(-test_budget // cac_ss))],
+        ["праг 1: нужна конверсия", round(-(-test_budget // cac_ss) / clicks, 4)],
+        ["праг 2: CAC за връщане на парите до 36 мес. €", round(cac_36, 2)],
+        ["праг 2: нужни поръчки (закръглено нагоре)", int(need_orders)],
+        ["праг 2: нужна конверсия = поръчки / кликове", round(need_orders / clicks, 4)]])
 
     # Цена за придобиване по канал (research/05_kanali_cac.md). Без превалутиране: курсът няма източник.
     g = p["base"]["price_gross"]

@@ -7,13 +7,15 @@
 | Icebreaker приходи първа пълна година във VF | US$174.2 млн | https://www.sec.gov/Archives/edgar/data/103379/000010337920000006/R12.htm | FY до 03.2019 | официален |
 | Icebreaker EV/приходи | ~1.13x (изчисл.) | горните два | 2018/19 | официален (изчисл.) |
 | Vuori: оценка / приходи | US$5.5 млрд / ~US$1 млрд | https://www.generalatlantic.com/media-article/vuori-announces-825-million-investment-led-by-general-atlantic-and-stripes/ ; https://nbcchicago.com/news/business/money-report/how-vuori-reached-a-5-5-billion-valuation-by-taking-share-from-lululemon/3628321 | 2024 | официален / медия |
+| Vuori: печеливша от 2017 | – | https://nbcchicago.com/news/business/money-report/how-vuori-reached-a-5-5-billion-valuation-by-taking-share-from-lululemon/3628321 | 2024 | медия |
 | Vuori EV/приходи | ~5.5x (изчисл.) | – | 2024 | медия (изчисл.) |
 | Gymshark: оценка / приходи | ~US$1.45 млрд / ~£250 млн | https://pwc.co.uk/services/deals/recent-deals/pwc-corporate-finance-advises-gymshark-on-its-minority-capital-r.html | 2020 | официален (съветник) |
-| Gymshark EV/приходи | ~4x (изчисл.) | – | 2020 | медия (изчисл.) |
+| Gymshark EV/приходи | ~4x (изчисл. от researcher-а; СМЕСВА USD и GBP без курс — НЕ СЕ ПОЛЗВА) | – | 2020 | медия (изчисл.) |
 | Allbirds IPO: пазарна стойност / приходи 2020 | ~US$2.16 млрд / US$219 млн | https://fashionunited.uk/news/business/allbirds-valued-at-2-16-billion-after-ipo/2021110358993 ; https://fashionunited.de/nachrichten/business/allbirds-ist-1-9-milliarden-euro-nach-dem-boersengang-wert/2021110343576 | 2021 | медия |
 | Allbirds IPO EV/приходи | ~9.9x (изчисл.) | – | 2021 | медия (изчисл.) |
 | Allbirds продажба на IP и активи 2026 | US$39.0 млн; приходи FY2025 US$152.5 млн | https://www.sec.gov/Archives/edgar/data/1653909/000162828026022181/allbirdsprojectarisepressr.htm | 03.2026 | официален |
 | Allbirds цена/приходи 2026 | ~0.26x (изчисл.) | – | 2026 | официален (изчисл.) |
+| Tripulse pre-seed: краудфъндинг | US$64 000 общо | https://www.caplight.com/company/tripulse | 2023 | мнение |
 | Girlfriend Collective Series C | US$35 млн при US$120 млн | https://salestools.io/nl/report/girlfriend-collective-raises-35m-series-c | 2024 | мнение |
 | Damodaran US Apparel EV/EBITDA | 13.89 (всички) / 10.30; 35 фирми | https://pages.stern.nyu.edu/~adamodar/New_Home_Page/datafile/vebitda.html | 01.2026 | официален (непряко) |
 | Damodaran US Apparel бета | 0.94; безлостова 0.76 | https://pages.stern.nyu.edu/~adamodar/New_Home_Page/datafile/Betas.html | 01.2026 | официален (непряко) |
