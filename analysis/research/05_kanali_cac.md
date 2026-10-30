@@ -15,8 +15,8 @@
 | Meta apparel CPC / CTR | $0.86 / 1.29% | https://localiq.com/blog/facebook-advertising-benchmarks/ | 2025 | медия |
 | Meta CPM Германия e-commerce | ~€9.05; ES €6.65; NL €8.58 | https://eightx.co/blog/eu-ecommerce-cac-benchmark | 2026 | медия |
 | Meta CPM Германия „Textiles“ | ~$10.36 | https://www.superads.ai/facebook-ads-costs/cpm-cost-per-mille/textiles/germany | 10.2024–09.2025 | медия |
-| Google Search Apparel CPC/CTR/CVR (САЩ) | $4.44 / 6.64% / 4.50% | https://twominutereports.com/google-ads-benchmarks | 04.2025–03.2026 | медия |
-| Conversion rate Shopify fashion | 1.9%; топ 10% >6.1% | https://www.size.ly/blog/fashion-ecommerce-benchmarks | 2023 | медия |
+| Google Search Apparel CPC/CTR/CVR (САЩ), WordStream 2026 edition чрез Two Minute Reports | $4.44 / 6.64% / 4.50% | https://twominutereports.com/google-ads-benchmarks | 04.2025–03.2026 | медия |
+| Conversion rate Shopify fashion (size.ly, цитира Littledata) | 1.9%; топ 10% >6.1% | https://www.size.ly/blog/fashion-ecommerce-benchmarks | 2023 | медия |
 | Conversion rate fashion e-commerce | 2.9–3.3% | https://blog2.attribuly.com/fashion-industry-benchmarks-2025-best-practices/ | 2025 | медия |
 | AOV fashion & apparel | $134.46 | https://gripsintelligence.com/insights/industries/apparel-accessories/fashion-and-accessories-e-commerce | н.д. | медия |
 | AOV дамска / мъжка мода | $80–150 / $60–120 | https://www.size.ly/blog/fashion-ecommerce-benchmarks | н.д. | медия |
