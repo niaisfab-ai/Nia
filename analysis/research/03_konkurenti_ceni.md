@@ -20,7 +20,7 @@
 | Hessnatur: приходи | >€100 млн | https://www.uamr.de/wem-gehoert-hess-natur/ | 2020/21 | мнение |
 | Hessnatur: нов собственик Wourth Group | – | https://fashionunited.de/nachrichten/business/wourth-group-ubernimmt-hessnatur/2026080467961 | 08.2026 | медия |
 | Organic Basics: клин Active (60% рецикл. найлон) | €86 | https://organicbasics.com/products/womens-active-leggings-night-sky | н.д. | официален (сайт) |
-| Organic Basics: клин Active Flow | €75 | https://organicbasics.com/products/womens-active-flow-leggings-river | н.д. | официален (сайт) |
+| Organic Basics: клин Active Flow, 83% рециклиран найлон с GRS | €75 | https://organicbasics.com/products/womens-active-flow-leggings-river | н.д. | официален (сайт) |
 | Girlfriend Collective: клин (79% RPET) | £65.00 | https://www.yogamatters.com/products/girlfriend-collective-compressive-high-rise-leggings-moss | н.д. | медия |
 | Girlfriend Collective: Series C | US$35 млн при оценка US$120 млн | https://salestools.io/es/report/girlfriend-collective-raises-35m-series-c | 2024 | мнение |
 | Kari Traa: Active Brands приходи | €110 млн | https://sgbonline.com/?p=150274 | 2018 | медия |
