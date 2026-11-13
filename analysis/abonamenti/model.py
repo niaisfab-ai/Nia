@@ -46,9 +46,8 @@ def market(p):
     monarch = 100e6     # Monarch ARR септ. 2026 (по оценка на Sacra — мнение)
     legacy = [12.65e9, 12.93e9, 16.27e9, 21.86e9, 25e9, 26.019e9]  # 6 платени доклада, 2024–2025, широки дефиниции
     write("market_top_down.csv", ["показател", "USD"], [
-        ["Rocket Money приходи от абонаменти 2025", rocket],
-        ["Monarch ARR 09.2026 (Sacra)", monarch],
-        ["Двата лидера заедно (различни периоди)", rocket + monarch],
+        ["Rocket Companies, приходи от абонаменти 2025 (консолидирано, не изрично Rocket Money)", rocket],
+        ["Monarch ARR 09.2026 (оценка на Sacra; различна дефиниция — не се събира с горното)", monarch],
         ["Дигитално наследство, мин. от 6 доклада", min(legacy)],
         ["Дигитално наследство, медиана на 6 доклада", statistics.median(legacy)],
         ["Дигитално наследство, макс. от 6 доклада", max(legacy)],
