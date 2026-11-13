@@ -74,17 +74,21 @@ def simulate(q, u, months=36):
     """Нови платени клиенти = маркетинг / CAC; всяка кохорта отпада с месечния churn."""
     n_new = q["marketing"] / u["cac"]
     surv = 1 - q["churn_month"]
-    active, cash, path = 0.0, 0.0, [0.0]
-    for _ in range(months):
+    active, cash, path, first_pos = 0.0, 0.0, [0.0], None
+    for t in range(1, months + 1):
         active = active * surv + n_new
-        cash += active * u["contrib"] - q["marketing"] - u["fixed"]
+        flow = active * u["contrib"] - q["marketing"] - u["fixed"]
+        if flow > 0 and first_pos is None:
+            first_pos = t
+        cash += flow
         path.append(cash)
-    return path, n_new, active
+    return path, n_new, active, first_pos
 
 
 def thresholds(q, u):
     cac_zero = u["ltv24"]
-    cac_ss = q["marketing"] * u["ltv24"] / (q["marketing"] + u["fixed"])
+    # Стабилно състояние при месечен отлив: активни = нови / отлив, затова клиентът носи принос / отлив за целия си живот.
+    cac_ss = q["marketing"] * (u["contrib"] / q["churn_month"]) / (q["marketing"] + u["fixed"])
     lo, hi = 0.01, max(cac_zero, 0.02)
     for _ in range(60):
         mid = (lo + hi) / 2
@@ -154,6 +158,7 @@ def main():
                    ("profit24", "печалба от клиент 24 мес. USD"), ("fixed", "постоянни разходи USD/мес.")]:
         rows.append([lab] + [round(U[s][k], 2) for s in SCEN])
     rows.append(["нови платени клиенти/мес. при маркетинг 2 000 USD"] + [round(sims[s][1], 1) for s in SCEN])
+    rows.append(["първи месец с положителен месечен резултат"] + [sims[s][3] or "няма за 36 мес." for s in SCEN])
     rows.append(["платени клиенти след 36 мес."] + [round(sims[s][2]) for s in SCEN])
     rows.append(["натрупан поток след 36 мес. USD"] + [round(sims[s][0][-1]) for s in SCEN])
     rows.append(["най-ниска точка на натрупания поток (нужен капитал) USD"] + [round(-min(sims[s][0])) for s in SCEN])
@@ -166,6 +171,7 @@ def main():
     write("thresholds.csv", ["праг", "стойност"], [
         ["CAC за печалба 0 на клиент (LTV24 = CAC) USD", round(cz, 2)],
         ["CAC, при който стабилният резултат покрива постоянните разходи USD", round(css, 2)],
+        ["стойност на клиента за целия живот при стабилен отлив (принос / отлив) USD", round(ub["contrib"] / q["churn_month"], 2)],
         ["CAC, при който парите се връщат до 36-ия месец USD", round(c36, 2)],
         ["нужни нови платени клиенти/мес. при CAC за покриване на постоянните разходи (нагоре)", -(-q["marketing"] // css)]])
     budget = 600  # ОЦЕНКА, USD
