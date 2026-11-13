@@ -1,0 +1,27 @@
+{
+  "permissions": {
+    "allow": [
+      "Read",
+      "Edit",
+      "Write",
+      "Glob",
+      "Grep",
+      "Bash(mv:*)",
+      "Bash(ls:*)",
+      "Bash(date:*)"
+    ]
+  },
+  "hooks": {
+    "SessionStart": [
+      {
+        "matcher": "startup",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "cd \"$CLAUDE_PROJECT_DIR\" && echo 'ПАМЕТ:' && cat pamet/INDEX.md && echo 'НОВИ В КУТИЯТА:' && ls inbox/novi"
+          }
+        ]
+      }
+    ]
+  }
+}
