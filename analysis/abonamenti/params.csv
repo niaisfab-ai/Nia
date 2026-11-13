@@ -1,0 +1,19 @@
+param,pess,base,opt,unit,type,source
+deaths_us,3072666,3072666,3072666,починали,факт,research/09 и 01 (CDC/NCHS 2024)
+deaths_ew,568613,568613,568613,починали,факт,research/09 и 01 (ONS Англия и Уелс 2024)
+deaths_eu,4820000,4820000,4820000,починали,факт,research/01 (Евростат 2024: 4,82 млн.; research/09 дава закръглено 4,81 млн.)
+share_pay_death,0.01,0.03,0.10,дял на починалите,оценка,ОЦЕНКА; горна граница 10% = британци с план за дигиталните си активи (Compare the Market 2026; 2 001 анкетирани; research/02)
+price_death_case,65,99.99,149,USD на случай,факт/оценка,research/02 и 03: Empathy $65 еднократно (около 2021) / Everplans $99.99 на година / GoodTrust $149 първа година; прилагане към всички региони — ОЦЕНКА
+price_month,3.99,5.99,8.99,USD на месец,оценка,ОЦЕНКА в диапазона на конкурентите: Rocket Money $6–12; Cleo Plus $5.99; Emma £4.99 (research/02 и 03)
+store_fee,0.15,0.15,0.15,дял от цената,факт,research/05 и 09 (Apple Small Business Program 15%; Google Play абонаменти 15%)
+accounts_per_user,2,2,2,банкови сметки,оценка,ОЦЕНКА
+agg_cost_per_account,0.30,0.25,0.25,USD на сметка на месец,факт,research/06 (Plaid Transactions $0.25–0.30 по трети страни — мнение)
+cloud_per_user,2.00,0.50,0.05,USD на потребител на месец,факт,research/06 (spendark 2026: $0.50–2.00 при 1 000 MAU; $0.02–0.05 за CRUD SaaS — мнение)
+cancels_per_user_year,2,2,2,прекратявания на година,оценка,ОЦЕНКА
+cost_per_cancel,8.22,1.84,1.84,USD на прекратяване,факт/оценка,research/06 (MetricNet 2023: $8.22 контакт с агент; Gartner: $1.84 самообслужване); цената на едно прекратяване не е намерена — ОЦЕНКА
+cpi,5.00,2.33,1.13,USD на инсталация,факт,research/05 (Liftoff 2024 iOS >$5 / Liftoff 2022 $2.33 / Adjust H1 2025 $1.13)
+conv_install_paid,0.021,0.107,0.121,дял,факт/оценка,research/05 (RevenueCat 2026 freemium 2.1% / hard paywall 10.7%; 2025 hard paywall 12.1%; всички категории — прилагане към finance е ОЦЕНКА)
+churn_month,0.103,0.093,0.04,дял на месец,факт/оценка,research/05: от задържане 27% / 31% след 12 мес. (RevenueCat 2026) → 1−0.27^(1/12) и 1−0.31^(1/12) — ОЦЕНКА; 4% = долната граница за Finance (appsops 2026 — мнение)
+fixed_known,500,500,0,USD на месец,факт,research/06 (Salt Edge Growth от $500/мес.; Salt Edge Basic: 100 връзки на живо безплатно)
+fixed_other,3083,1000,500,USD на месец,оценка,ОЦЕНКА; песимистичен включва SOC 2 за малък стартъп $25 000 за първата година / 12 (research/06 — мнение)
+marketing,2000,2000,2000,USD на месец,оценка,ОЦЕНКА
